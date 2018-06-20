@@ -18,7 +18,13 @@ def search(request):
             title = form.cleaned_data['stories_title']
             text = form.cleaned_data['stories_text']
             date = form.cleaned_data['date']
-            return HttpResponseRedirect('/search/results/')
+            url = reverse('results')
+            if date:
+                date = date.strftime('%Y%m%d')
+                url += '?title=' + title + '&text=' + text + '&date=' + date
+            else:
+                url += '?title=' + title + '&text=' + text
+            return HttpResponseRedirect(url)
             # return render(request, 'result.html', {'result': query_hackernews(request.POST['stories_title'])})
         
     #if not post method will create a blank form
@@ -31,8 +37,11 @@ def results(request):
     title = request.GET.get('title')
     text = request.GET.get('text')
     date = request.GET.get('date')
-    response = "You are looking at the results of title {}, text {}, date {}".format(title, text, date)
-    context = {
-        'response':response
-    }
-    return render(request, 'results.html', context)
+    if title and text:
+        response = "You are looking at the results of title {}, text {}, date {}".format(title, text, date)
+        context = {
+            'response':response
+        }
+        return render(request, 'results.html', context)
+    else:
+        return HttpResponseRedirect('/search/')

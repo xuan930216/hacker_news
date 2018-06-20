@@ -12,10 +12,13 @@ class NewsSearchForm(forms.Form):
 
     #validate form
     def clean_date(self):
-        data = self.cleaned_data['date']
-        #check data is not in future
-        if data > datetime.date.today():
-            raise ValidationError(_('Invalid date - date in future'))
+        data = self.cleaned_data['date']#optional field
+        if data:
+            #check data is not in future
+            if data > datetime.date.today():
+                raise ValidationError(_('Invalid date - date in future'))
+        else:
+            self.cleaned_data['date']= ''
 
         return data
         
