@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "hacker-news-207709",
+  "private_key_id": "1b1b1cf404964508dcda67eb7a3bfa844800f280",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCm0xSZxSUzfVtf\nx6GpqOhQNezADOJaqT9TEOUCjz+kYgHFUSY2Ti4LAGWsO60A2ykt7SSQ0FAYyCFn\ndA550E/qf2pV9+MyIOU9PlJxw2QmYQqDKoH+Rl2MCjTg91o8J9SJXnIOWG25OtNR\nw/t7I2R0rFrTPXlGSkXrggdyTPwTy3GXZl3ET/efPdAUvktWuaxfHk0uG7bhNiyC\nsbGekSt5MWo/MAQZztz+0EbQynbN9w1GbccTiAEqY8xszV86nxL4975mDeGDzdrP\nRLDiBUxDNKZwRy5M7z18uT3UKveaexve9JYKg61uO7gKkjHEvd4EinJeN3ZuR0ph\nY7iIbBQFAgMBAAECggEABJnSZsarY6IyLjACOyMTqLyn/bvAbvz3Qfoq2rlEXJ5j\ni2nVLc7vqz5OT4oqZHLm52OaLDbc8qYFJJ/shnsFugNCfA77XUAcTZlY3dbXipoH\nPgrvoI/kiuHWlGePl0eg74EjKgnRzHejgtm7gPY+3vUVU/lmzUofAT0DkA+XLZBV\nv6RgW89BUKRG8IM8NxfR/7NwJspIDsvz7y3+GZQMid0YVqSyi3rxKatGlxdVCsVJ\njPqndGSDrMIOuDszp6E1NSrSdBKXL4mUrR6fRugXkzUsF20Z6d+S/n5kpc2hCym4\ncK+cNVmBd1ik/wt+RNXKxxQ7yChE3y+qU92afZf7uQKBgQDcItnzFraaYvtdqb6V\njYG9Vo8lybeIci97HFnvcw8BDKTVJJVCFIkUYn6mOEXuxEBn+UAaaIJGEmIjuPxZ\n5c1525CB6NdNtERD2dkSPT4aEXFzEAe6/7jGg1UXpUxGdXc2TPw9ZMqmKO1EMaz0\nXN8uE1iac1yjOrdsN13qPQzOHQKBgQDCAMddklp7Pc30OMOfyTMFJZp/omxY1BT4\n+l6v934nsEvE/iFvJTwPsjeoNNEjOmWMioqh6xiH0YCo+u3L0MirdAJshpVRCE2G\n6UhL0WQIP7ibPrWgN85jXLVLK/2rD/zD0xKyzerEyyh1sKTdRftd47H5D8A27TTD\n/hUxlrgZCQKBgFdiIkAjsQKh7gQlIHk/PdQJ6zLl2sv3/68P9wddFgSlnzzYk8My\nYaPM4VdcGS6JisN7Jp4VBDmKjJh/kvSgiysnJDrdUbIPr9V7QXbDBsbUS8OQBnGN\nlyx976Y+QIPrlxHgB3TbcLH6pwyd53js8M7acR6GUqyc3zi+1bHo4A9lAoGAKVed\nJLWhjo3XK+pE1fI8ayZeTEDCshNP/NbuArXNLowFOY+mdFcM+5NRBQlsYAN7zH1h\nmavN6HOe5WPD9SEjAlaQhawQedo5GzzvaSjQFmnt3zd34RLDaq1A/Sn8vs2DYf/D\nBlOXaiSZFKt2FqlpLdLuBFN09L+L9RBaV9z0knECgYEAj5MMOx69k+GYCw4weNXz\nbnZmILZW8xmIitCF1rTjzktGqOuGkvNTfey97mB6Fm6AFuNRMkH4LFzd1ZrV8G+0\nSqCRGn9ddT2CEj81z1BPu/06TV9Ua1iwXaiAsv45OiFxzRicon+rE+a7/H82ZHvW\nkKv0k1SRbci8rLAIrO2ZjSU=\n-----END PRIVATE KEY-----\n",
+  "client_email": "quickstart@hacker-news-207709.iam.gserviceaccount.com",
+  "client_id": "109225177727744958137",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/quickstart%40hacker-news-207709.iam.gserviceaccount.com"
+}

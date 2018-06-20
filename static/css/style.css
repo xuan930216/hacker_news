@@ -1,0 +1,21 @@
+/* base generic html */
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+.mainpage_logo{
+    width:100%;
+    height:auto;
+    display: none;
+}
+
+/* search html */
+.search_form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.search_form_submit{
+    margin:10px 0px
+}
