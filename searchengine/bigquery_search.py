@@ -1,18 +1,34 @@
 #import the BigQuery libraries
 from google.cloud import bigquery
+import datetime
 
-def query_hackernews(keyword):
+def query_hackernews(*args):
     #create bigquery client object
     client = bigquery.Client.from_service_account_json('searchengine/keyfile.json')
     
-    #query public data set - hacker news
-    query_job = client.query("""
-        SELECT title, 
-               LENGTH(title) AS title_length
+    #get title, text and date from arguments, then convert title and text to lower case
+    title = args[0].lower()
+    text = args[1].lower()
+    date = args[2]
+
+    if date:
+        year, month, day = date.split('-')
+        date = datetime.date(int(year), int(month), int(day))
+        sql = """
+        SELECT  title, url, text, DATE(time_ts) as date
         FROM `bigquery-public-data.hacker_news.stories` 
-        WHERE title LIKE '%{}%'
-        ORDER BY title_length DESC
-        LIMIT 1000""".format(keyword))
+        WHERE LOWER(title) LIKE '%{}%' AND LOWER(text) Like '%{}%' AND DATE(time_ts) = DATE({}, {}, {})
+        """.format(title, text, int(year), int(month), int(day))
+    else:
+        sql = """
+        SELECT  title, url, text, DATE(time_ts) as date
+        FROM `bigquery-public-data.hacker_news.stories` 
+        WHERE LOWER(title) LIKE '%{}%' AND LOWER(text) Like '%{}%'
+        """.format(title, text)
+
+        
+    #query public data set - hacker news
+    query_job = client.query(sql)
 
     results = query_job.result()  # Waits for job to complete.
 

@@ -3,6 +3,12 @@
 {% block content %}
 <h1>Vuulr Search Result</h1>
 
-<h2>{{response}}</h2>
+{% if result %}
+    {% for res in result %}
+        <li>{{ res }}</li>
+    {% endfor %}
+<!-- {% else %} -->
+
+{% endif %}
 
 {% endblock %}

@@ -3,6 +3,7 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.urls import reverse
 
 from searchengine.bigquery_search import query_hackernews
+import json
 
 from .forms import NewsSearchForm
 # Create your views here.
@@ -20,7 +21,7 @@ def search(request):
             date = form.cleaned_data['date']
             url = reverse('results')
             if date:
-                date = date.strftime('%Y%m%d')
+                date = date.strftime('%Y-%m-%d')
                 url += '?title=' + title + '&text=' + text + '&date=' + date
             else:
                 url += '?title=' + title + '&text=' + text
@@ -38,10 +39,19 @@ def results(request):
     text = request.GET.get('text')
     date = request.GET.get('date')
     if title and text:
-        response = "You are looking at the results of title {}, text {}, date {}".format(title, text, date)
-        context = {
-            'response':response
-        }
-        return render(request, 'results.html', context)
+        query_result =  query_hackernews(title, text, date)
+
+        #store all result
+        json_list = []
+        for row in query_result:
+            #save on record
+            data = {}
+            data['title'] = row.title
+            data['url'] = row.url
+            data['text'] = row.text
+            data['date'] = row.date.strftime('%Y-%m-%d')
+            json_data = json.dumps(data)
+            json_list.append(json_data)
+        return render(request, 'results.html', {'result': json_list})
     else:
         return HttpResponseRedirect('/search/')
