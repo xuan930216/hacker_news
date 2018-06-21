@@ -3,11 +3,14 @@
     margin-top: 20px;
     padding: 0;
     list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .mainpage_logo{
     width:100%;
     height:auto;
-    display: none;
+    max-width: 100px;
 }
 
 /* search html */

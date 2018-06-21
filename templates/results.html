@@ -4,11 +4,40 @@
 <h1>Vuulr Search Result</h1>
 
 {% if result %}
-    {% for res in result %}
-        <li>{{ res }}</li>
-    {% endfor %}
-<!-- {% else %} -->
 
+
+    {% for res in result %}
+        <li>
+           {{res}}
+        </li>
+    {% endfor %}
+
+    <div class="pagination">
+    
+        {% if result.has_previous %}
+        <a href="{{currentUrl}}&page=1"><<</a>
+        <a href="{{currentUrl}}&page={{result.previous_page_number}}"><</a>
+        {% endif %}
+
+        {% for num in result.paginator.page_range %}
+
+            {% if result.number == num %}
+                <strong>{{num}}</strong>
+
+            {% elif num > result.number|add:"-3" and num < result.number|add:"+3" %}
+                {{num}}
+            {% endif %}
+        {% endfor %}
+
+        {% if result.has_next %}
+        <a href="{{currentUrl}}&page={{result.next_page_number}}">></a>
+        <a href="{{currentUrl}}&page={{result.paginator.num_pages}}">>></a>
+        {% endif %}
+
+
+    </div>
+{% else %}
+    <h2>No results found</h2>
 {% endif %}
 
 {% endblock %}

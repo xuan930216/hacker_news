@@ -5,6 +5,8 @@ from django.urls import reverse
 from searchengine.bigquery_search import query_hackernews
 import json
 
+from django.core.paginator import Paginator
+
 from .forms import NewsSearchForm
 # Create your views here.
 
@@ -35,9 +37,9 @@ def search(request):
     return render(request, 'search.html', {'form': form})
 
 def results(request):
-    title = request.GET.get('title')
-    text = request.GET.get('text')
-    date = request.GET.get('date')
+    title = request.GET.get('title', None)
+    text = request.GET.get('text', None)
+    date = request.GET.get('date', None)
     if title and text:
         query_result =  query_hackernews(title, text, date)
 
@@ -52,6 +54,13 @@ def results(request):
             data['date'] = row.date.strftime('%Y-%m-%d')
             json_data = json.dumps(data)
             json_list.append(json_data)
-        return render(request, 'results.html', {'result': json_list})
+        
+        paginator = Paginator(json_list, 5)#5 contents prt page
+        page = request.GET.get('page')
+        result = paginator.get_page(page)
+
+        currentUrl = request.get_full_path
+
+        return render(request, 'results.html', {'result': result, "currentUrl": currentUrl})
     else:
         return HttpResponseRedirect('/search/')

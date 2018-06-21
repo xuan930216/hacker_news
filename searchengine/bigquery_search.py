@@ -17,13 +17,15 @@ def query_hackernews(*args):
         sql = """
         SELECT  title, url, text, DATE(time_ts) as date
         FROM `bigquery-public-data.hacker_news.stories` 
-        WHERE LOWER(title) LIKE '%{}%' AND LOWER(text) Like '%{}%' AND DATE(time_ts) = DATE({}, {}, {})
+        WHERE REGEXP_CONTAINS(title, '(?i){}') 
+              AND REGEXP_CONTAINS(text, '(?i){}')
+              AND DATE(time_ts) = DATE({}, {}, {})
         """.format(title, text, int(year), int(month), int(day))
     else:
         sql = """
         SELECT  title, url, text, DATE(time_ts) as date
         FROM `bigquery-public-data.hacker_news.stories` 
-        WHERE LOWER(title) LIKE '%{}%' AND LOWER(text) Like '%{}%'
+        WHERE REGEXP_CONTAINS(title, '(?i){}') AND REGEXP_CONTAINS(text, '(?i){}')
         """.format(title, text)
 
         
