@@ -39,4 +39,4 @@ Query Hacker News public dataset through BigQuery API.
 * Create a service account and give the role 
 * Install python google cloud client library
 * full-text searching:
-    Case insensitive regex REGEXP_CONTAINS-3.4 Lower(3.9)
+    Case insensitive regex REGEXP_CONTAINS-3.4s Lower-3.9
